@@ -1,0 +1,4 @@
+.buttons>button,
+.inputs>mat-form-field {
+  margin-right: 1rem;
+}

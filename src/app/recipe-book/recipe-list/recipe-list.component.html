@@ -1,0 +1,12 @@
+<div class="recipe-container">
+  <div class="recipe-group">
+    <app-recipe-item
+      *ngFor="let recipeEl of recipes"
+      [recipe]="recipeEl"
+    ></app-recipe-item>
+  </div>
+  <app-recipe-detail
+    *ngIf="recipeDetail"
+    [recipeDetail]="recipeDetail"
+  ></app-recipe-detail>
+</div>

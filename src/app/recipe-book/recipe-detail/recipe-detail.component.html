@@ -1,0 +1,20 @@
+<div>
+  <h2>{{ recipeDetail.name }}</h2>
+
+  <mat-menu #detailMenu="matMenu">
+    <button mat-menu-item (click)="onAddToShoppingCartClick()">
+      Add to Shopping List
+    </button>
+    <button mat-menu-item>Add</button>
+    <button mat-menu-item>Delete</button>
+  </mat-menu>
+  <button mat-flat-button color="warn" [matMenuTriggerFor]="detailMenu">
+    Manage Recipe
+  </button>
+  <div>{{ recipeDetail.desc }}</div>
+  <ul>
+    <li *ngFor="let ing of recipeDetail.ingredients">
+      {{ ing.name }} - {{ ing.amount }}
+    </li>
+  </ul>
+</div>

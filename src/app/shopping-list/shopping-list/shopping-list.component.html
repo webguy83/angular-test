@@ -1,0 +1,12 @@
+<app-shopping-list-edit></app-shopping-list-edit>
+<mat-divider></mat-divider>
+<mat-list role="list">
+  <mat-list-item
+    role="listitem"
+    *ngFor="let ingredient of ingredients"
+    class="ingredient-item"
+    ><mat-card class="ingredient-card"
+      >{{ ingredient.name }} - {{ ingredient.amount }}</mat-card
+    ></mat-list-item
+  >
+</mat-list>

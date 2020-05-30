@@ -1,0 +1,29 @@
+<form class="shopping-list-edit-group">
+  <div class="inputs">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Eg. Fred Bitch" #nameInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input matInput placeholder="999" #amountInput />
+    </mat-form-field>
+  </div>
+  <div class="buttons">
+    <button
+      class="btn"
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="add()"
+    >
+      Add
+    </button>
+    <button class="btn" mat-raised-button color="accent" (click)="delete()">
+      Delete
+    </button>
+    <button class="btn" mat-raised-button color="warn" (click)="clear()">
+      Clear
+    </button>
+  </div>
+</form>

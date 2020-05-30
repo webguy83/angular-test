@@ -1,0 +1,11 @@
+.ingredient-card {
+  width: 100%;
+}
+
+.ingredient-item {
+  margin-bottom: 1rem;
+}
+
+mat-divider {
+  margin: 1.5rem 0;
+}

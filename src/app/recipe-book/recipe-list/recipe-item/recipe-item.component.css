@@ -1,0 +1,12 @@
+.mat-divider {
+  margin: 2rem 0;
+}
+
+.recipe-card {
+  max-width: 16rem;
+  margin-bottom: 3rem;
+}
+
+.recipe-item {
+  cursor: pointer;
+}
