@@ -1,9 +1,7 @@
 import { Recipe } from '../recipe-book/recipe-list/models/recipe.model';
-import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../models/ingredient.model';
 
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
   private recipes: Recipe[] = [
     new Recipe(
       1,
@@ -35,5 +33,9 @@ export class RecipeService {
 
   getRecipes() {
     return [...this.recipes];
+  }
+
+  getRecipe(id: number): Recipe {
+    return this.recipes.find((recipe: Recipe) => recipe.id === id);
   }
 }

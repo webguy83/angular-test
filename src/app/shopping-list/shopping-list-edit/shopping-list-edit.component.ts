@@ -4,7 +4,6 @@ import {
   ViewChild,
   ElementRef,
   Output,
-  EventEmitter,
 } from '@angular/core';
 import { Ingredient } from 'src/app/models/ingredient.model';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';

@@ -28,6 +28,8 @@ import { MenubtnDirective } from './directives/menubtn.directive';
 import { ShoppingListService } from './services/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { RecipeStartComponent } from './recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { HomeComponent } from './home/home.component';
     HighlightDirective,
     MenubtnDirective,
     HomeComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,

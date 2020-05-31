@@ -9,3 +9,7 @@
 .home-btn {
   cursor: pointer;
 }
+
+.toolbar>* {
+  margin: .5rem;
+}

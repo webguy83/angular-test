@@ -1,12 +1,21 @@
 <div class="recipe-container">
   <div class="recipe-group">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onNewRecipeClick()"
+      class="btn"
+    >
+      New Recipe
+    </button>
     <app-recipe-item
       *ngFor="let recipeEl of recipes"
       [recipe]="recipeEl"
     ></app-recipe-item>
   </div>
-  <app-recipe-detail
+  <!-- <app-recipe-detail
     *ngIf="recipeDetail"
     [recipeDetail]="recipeDetail"
-  ></app-recipe-detail>
+  ></app-recipe-detail> -->
+  <router-outlet></router-outlet>
 </div>
