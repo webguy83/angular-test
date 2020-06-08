@@ -3,8 +3,9 @@
 <mat-list role="list">
   <mat-list-item
     role="listitem"
-    *ngFor="let ingredient of ingredients"
+    *ngFor="let ingredient of ingredients; let i = index"
     class="ingredient-item"
+    (click)="onIngredientClick(i)"
     ><mat-card class="ingredient-card"
       >{{ ingredient.name }} - {{ ingredient.amount }}</mat-card
     ></mat-list-item

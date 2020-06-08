@@ -1,12 +1,25 @@
-<form class="shopping-list-edit-group">
+<form class="shopping-list-edit-group" #f="ngForm">
   <div class="inputs">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput placeholder="Eg. Fred Bitch" #nameInput />
+      <input
+        matInput
+        placeholder="Eg. Fred Bitch"
+        name="name"
+        ngModel
+        required
+      />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Amount</mat-label>
-      <input matInput placeholder="999" #amountInput />
+      <input
+        matInput
+        placeholder="999"
+        name="amount"
+        pattern="^[1-9]+[0-9]*$"
+        ngModel
+        required
+      />
     </mat-form-field>
   </div>
   <div class="buttons">
@@ -15,7 +28,9 @@
       type="button"
       mat-raised-button
       color="primary"
-      (click)="add()"
+      name="add"
+      (click)="add(f)"
+      [disabled]="!f.valid"
     >
       Add
     </button>
