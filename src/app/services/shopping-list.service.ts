@@ -22,6 +22,18 @@ export class ShoppingListService {
     return this.ingredients[index];
   }
 
+  editIngredient(index: number, name: string, amount: number) {
+    this.ingredients[index] = new Ingredient(name, amount);
+    this.emitIngredientsChange();
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients = this.ingredients.filter((_, i) => {
+      return index !== i;
+    });
+    this.emitIngredientsChange();
+  }
+
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     this.emitIngredientsChange();

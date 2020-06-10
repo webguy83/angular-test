@@ -1,0 +1,27 @@
+.buttons>button,
+.inputs>mat-form-field {
+  margin-right: 1rem;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+:host {
+  width: 50%;
+}
+
+.ing-group {
+  display: flex;
+  align-items: center;
+}
+
+.ing-group>* {
+  margin-right: 1rem
+}
+
+.ing-group>.btn {
+  margin-bottom: 1.34375em;
+}

@@ -32,10 +32,18 @@ export class RecipeService {
   ];
 
   getRecipes() {
-    return [...this.recipes];
+    return this.recipes;
   }
 
   getRecipe(id: number): Recipe {
     return this.recipes.find((recipe: Recipe) => recipe.id === id);
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
+  updateRecipe(index: number, recipe: Recipe) {
+    this.recipes[index - 1] = recipe;
   }
 }

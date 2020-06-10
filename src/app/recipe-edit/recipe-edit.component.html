@@ -1,1 +1,99 @@
-<p>recipe-edit works!</p>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <div class="buttons">
+    <button
+      class="btn"
+      type="submit"
+      [disabled]="!recipeForm.valid"
+      mat-raised-button
+      color="primary"
+    >
+      Save
+    </button>
+    <button class="btn" mat-raised-button color="warn" type="button">
+      Cancel
+    </button>
+  </div>
+  <div class="inputs">
+    <mat-form-field appearance="fill">
+      <mat-label>Recipe Name</mat-label>
+      <input
+        matInput
+        placeholder="Eg. Fred Shit"
+        name="name"
+        formControlName="name"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input
+        matInput
+        placeholder="Image here"
+        name="imagePath"
+        formControlName="imagePath"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        placeholder="Description of recipe.."
+        name="description"
+        formControlName="description"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Content</mat-label>
+      <textarea
+        rows="20"
+        matInput
+        placeholder="Enter your content"
+        name="content"
+        formControlName="content"
+      ></textarea>
+    </mat-form-field>
+    <div class="row" formArrayName="ingredients">
+      <div
+        class="ing-group"
+        *ngFor="let ingCtrl of controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>Ingredient Name</mat-label>
+          <input
+            matInput
+            placeholder="ingredient"
+            name="ingredientName"
+            formControlName="name"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Ingredient Amount</mat-label>
+          <input
+            matInput
+            placeholder="amount"
+            name="ingredientAmount"
+            formControlName="amount"
+          />
+        </mat-form-field>
+        <button
+          *ngIf="i === controls.length - 1"
+          class="btn"
+          mat-raised-button
+          color="primary"
+          type="button"
+        >
+          +
+        </button>
+        <button
+          *ngIf="i !== controls.length - 1"
+          class="btn"
+          mat-raised-button
+          color="warn"
+          type="button"
+        >
+          X
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

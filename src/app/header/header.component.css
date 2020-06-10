@@ -10,6 +10,10 @@
   cursor: pointer;
 }
 
+.toolbar {
+  margin-bottom: 3rem;
+}
+
 .toolbar>* {
   margin: .5rem;
 }

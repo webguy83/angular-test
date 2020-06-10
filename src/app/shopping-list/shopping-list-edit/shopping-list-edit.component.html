@@ -1,6 +1,6 @@
 <form class="shopping-list-edit-group" #f="ngForm">
   <div class="inputs">
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input
         matInput
@@ -10,7 +10,7 @@
         required
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Amount</mat-label>
       <input
         matInput
@@ -29,15 +29,27 @@
       mat-raised-button
       color="primary"
       name="add"
-      (click)="add(f)"
+      (click)="!editMode ? add(f) : edit(f)"
       [disabled]="!f.valid"
     >
-      Add
+      {{ editMode ? "Edit" : "Add" }}
     </button>
-    <button class="btn" mat-raised-button color="accent" (click)="delete()">
+    <button
+      [disabled]="!editMode"
+      class="btn"
+      mat-raised-button
+      color="accent"
+      (click)="delete()"
+    >
       Delete
     </button>
-    <button class="btn" mat-raised-button color="warn" (click)="clear()">
+    <button
+      class="btn"
+      mat-raised-button
+      color="warn"
+      [disabled]="!f.valid"
+      (click)="clear()"
+    >
       Clear
     </button>
   </div>
