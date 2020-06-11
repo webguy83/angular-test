@@ -14,7 +14,7 @@
       mat-raised-button
       color="warn"
       type="button"
-      (click)="onSubmit()"
+      (click)="onCancel()"
     >
       Cancel
     </button>
@@ -36,8 +36,10 @@
         placeholder="Image here"
         name="imagePath"
         formControlName="imagePath"
+        #imagePath
       />
     </mat-form-field>
+    <img [src]="imagePath.value" class="preview" />
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
       <input
@@ -82,24 +84,23 @@
           />
         </mat-form-field>
         <button
-          *ngIf="i === controls.length - 1"
-          class="btn"
-          mat-raised-button
-          color="primary"
-          type="button"
-        >
-          +
-        </button>
-        <button
-          *ngIf="i !== controls.length - 1"
           class="btn"
           mat-raised-button
           color="warn"
           type="button"
+          (click)="onDeleteIngredient(i)"
         >
           X
         </button>
       </div>
+      <button
+        (click)="addIngredient()"
+        mat-raised-button
+        color="accent"
+        type="button"
+      >
+        Add Ingredient
+      </button>
     </div>
   </div>
 </form>
