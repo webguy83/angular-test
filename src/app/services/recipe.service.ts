@@ -1,10 +1,16 @@
 import { Recipe } from '../recipe-book/recipe-list/models/recipe.model';
 import { Ingredient } from '../models/ingredient.model';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
+@Injectable()
 export class RecipeService {
+  recipesChanged = new Subject<Recipe[]>();
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
   private recipes: Recipe[] = [
     new Recipe(
-      1,
       'Chocolate Cake',
       'Some yummy chocolate',
       'https://www.iheartnaptime.net/wp-content/uploads/2016/06/IHeartNaptime_onepotgoulash-2.jpg',
@@ -17,7 +23,6 @@ export class RecipeService {
       ]
     ),
     new Recipe(
-      2,
       'Chicken Wings',
       'Hot and spicy bbq wings with tasty side effects',
       'https://graphics8.nytimes.com/images/2016/02/09/dining/09COOKING_CHICKENWINGS2/09COOKING_CHICKENWINGS2-superJumbo.jpg',
@@ -32,18 +37,26 @@ export class RecipeService {
   ];
 
   getRecipes() {
-    return this.recipes;
+    return [...this.recipes];
   }
 
-  getRecipe(id: number): Recipe {
-    return this.recipes.find((recipe: Recipe) => recipe.id === id);
+  getRecipe(index: number): Recipe {
+    return this.recipes[index];
   }
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
+    this.recipesChanged.next([...this.recipes]);
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next([...this.recipes]);
+    this.router.navigate(['../recipes'], { relativeTo: this.route });
   }
 
   updateRecipe(index: number, recipe: Recipe) {
-    this.recipes[index - 1] = recipe;
+    this.recipes[index] = recipe;
+    this.recipesChanged.next([...this.recipes]);
   }
 }
